@@ -35,26 +35,28 @@ body {
 /* Weather Section - Top Left */
 .weather-section {
     grid-area: weather;
-    background: rgba(255, 255, 255, 0.9);
+    background: rgba(134, 156, 198, 1);
     border-radius: 15px;
     padding: 20px;
-    backdrop-filter: blur(10px);
-    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
-    border: 1px solid rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(15px);
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
     max-width: 250px;
     height: fit-content;
 }
 
 .weather-section h2 {
-    color: #4a5568;
+    color: rgba(255, 255, 255, 0.9);
     margin-bottom: 15px;
     font-size: 1.2rem;
     font-weight: 600;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 #weather-info {
-    color: #2d3748;
+    color: rgba(255, 255, 255, 0.8);
     font-size: 0.9rem;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 /* Theme Toggle - Top Right */
@@ -79,7 +81,6 @@ body {
 
 #theme-toggle:hover {
     background: rgba(255, 255, 255, 0.3);
-    transform: translateY(-2px);
 }
 
 /* Main Content - Center */
@@ -110,41 +111,51 @@ body {
 }
 
 .search-section {
-    background: rgba(255, 255, 255, 0.95);
+    background: rgba(134, 156, 198, 1);
     border-radius: 20px;
     padding: 30px;
     margin-bottom: 30px;
-    backdrop-filter: blur(10px);
-    box-shadow: 0 15px 35px rgba(31, 38, 135, 0.2);
-    border: 1px solid rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 15px 35px rgba(31, 38, 135, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.3);
     width: 100%;
 }
 
 #search-input {
     width: 70%;
     padding: 15px 20px;
-    border: 2px solid #e2e8f0;
+    border: 1px solid rgba(255, 255, 255, 0.3);
     border-radius: 12px;
     font-size: 1rem;
     margin-right: 10px;
     outline: none;
-    transition: border-color 0.3s ease;
+    transition: all 0.3s ease;
+    background: rgba(68, 120, 193, 0.5);
+    backdrop-filter: blur(10px);
+    color: white;
 }
 
 #search-input:focus {
-    border-color: #667eea;
-    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    border-color: rgba(255, 255, 255, 0.6);
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.1);
+    background: rgba(68, 120, 193, 0.75);
+}
+
+#search-input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
 }
 
 #search-engine {
     padding: 15px;
-    border: 2px solid #e2e8f0;
+    border: 1px solid rgba(255, 255, 255, 0.3);
     border-radius: 12px;
     margin-right: 10px;
     font-size: 1rem;
-    background: white;
+    background: rgba(68, 120, 193, 0.5);
+    backdrop-filter: blur(10px);
     cursor: pointer;
     outline: none;
+    color: white;
 }
 
 #search-button {
@@ -160,24 +171,25 @@ body {
 }
 
 #search-button:hover {
-    transform: translateY(-2px);
+    transform: translateY(2px);
 }
 
 .bookmarks-section {
-    background: rgba(255, 255, 255, 0.9);
+    background: rgba(134, 156, 198, 1);
     border-radius: 15px;
     padding: 25px;
-    backdrop-filter: blur(10px);
-    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.2);
-    border: 1px solid rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(15px);
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.3);
     width: 100%;
 }
 
 .bookmarks-section h2 {
-    color: #4a5568;
+    color: rgba(255, 255, 255, 0.9);
     margin-bottom: 15px;
     font-size: 1.3rem;
     font-weight: 600;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 #bookmark-list {
@@ -187,52 +199,65 @@ body {
 /* Todo Section - Bottom Right */
 .todo-section {
     grid-area: todo;
-    background: rgba(255, 255, 255, 0.9);
+    background: rgba(134, 156, 198, 1);
     border-radius: 15px;
     padding: 20px;
-    backdrop-filter: blur(10px);
-    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
-    border: 1px solid rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(15px);
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
     max-width: 300px;
     justify-self: end;
     height: fit-content;
 }
 
 .todo-section h2 {
-    color: #4a5568;
+    color: rgba(255, 255, 255, 0.9);
     margin-bottom: 15px;
     font-size: 1.2rem;
     font-weight: 600;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 #todo-input {
     width: 100%;
     padding: 10px;
-    border: 2px solid #e2e8f0;
+    border: 1px solid rgba(255, 255, 255, 0.3);
     border-radius: 8px;
     margin-bottom: 10px;
     font-size: 0.9rem;
     outline: none;
+    background: rgba(68, 120, 193, 0.5);
+    backdrop-filter: blur(10px);
+    color: white;
+    transition: all 0.3s ease;
 }
 
 #todo-input:focus {
-    border-color: #667eea;
+    border-color: rgba(255, 255, 255, 0.6);
+    background: rgba(68, 120, 193, 0.75);
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.1);
+}
+
+#todo-input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
 }
 
 #add-todo {
-    background: #667eea;
+    background: rgba(68, 120, 193, 0.5);
     color: white;
-    border: none;
+    border: 1px solid rgba(255, 255, 255, 0.3);
     padding: 10px 15px;
     border-radius: 8px;
     cursor: pointer;
     width: 100%;
     margin-bottom: 15px;
     font-weight: 500;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
 }
 
 #add-todo:hover {
-    background: #5a67d8;
+    background: rgba(68, 120, 193, 0.75);
 }
 
 #todo-list {
@@ -245,29 +270,53 @@ body {
 }
 
 .dark-mode .weather-section,
-.dark-mode .search-section,
-.dark-mode .bookmarks-section,
 .dark-mode .todo-section {
-    background: rgba(45, 55, 72, 0.9);
+    background: rgba(45, 55, 72, 0.3);
+    color: #e2e8f0;
+}
+
+.dark-mode .search-section,
+.dark-mode .bookmarks-section {
+    background: rgba(45, 55, 72, 0.2);
     color: #e2e8f0;
 }
 
 .dark-mode .weather-section h2,
 .dark-mode .bookmarks-section h2,
 .dark-mode .todo-section h2 {
-    color: #e2e8f0;
+    color: rgba(226, 232, 240, 0.9);
 }
 
 .dark-mode #search-input,
 .dark-mode #search-engine,
 .dark-mode #todo-input {
-    background: #4a5568;
+    background: rgba(74, 85, 104, 0.4);
     color: #e2e8f0;
-    border-color: #718096;
+    border-color: rgba(113, 128, 150, 0.5);
+}
+
+.dark-mode #search-input:focus,
+.dark-mode #todo-input:focus {
+    background: rgba(74, 85, 104, 0.5);
+    border-color: rgba(203, 213, 224, 0.6);
+}
+
+.dark-mode #search-input::placeholder,
+.dark-mode #todo-input::placeholder {
+    color: rgba(203, 213, 224, 0.6);
 }
 
 .dark-mode #weather-info {
-    color: #cbd5e0;
+    color: rgba(203, 213, 224, 0.8);
+}
+
+.dark-mode #add-todo {
+    background: rgba(74, 85, 104, 0.4);
+    border-color: rgba(113, 128, 150, 0.5);
+}
+
+.dark-mode #add-todo:hover {
+    background: rgba(74, 85, 104, 0.5);
 }
 
 /* Responsive Design */
