@@ -1,0 +1,309 @@
+@font-face {
+    font-family: 'Inter';
+    src: url('assets/fonts/Inter-Regular.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(135deg, #7292d2 0%, #4478c1 100%);
+    color: #333;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
+    padding: 20px;
+    gap: 20px;
+    grid-template-areas: 
+        "weather . theme-toggle"
+        ". main ."
+        ". . todo";
+}
+
+/* Weather Section - Top Left */
+.weather-section {
+    grid-area: weather;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    padding: 20px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    max-width: 250px;
+    height: fit-content;
+}
+
+.weather-section h2 {
+    color: #4a5568;
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+#weather-info {
+    color: #2d3748;
+    font-size: 0.9rem;
+}
+
+/* Theme Toggle - Top Right */
+.theme-toggle-section {
+    grid-area: theme-toggle;
+    display: flex;
+    justify-content: flex-end;
+    height: fit-content;
+}
+
+#theme-toggle {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    border-radius: 25px;
+    padding: 10px 20px;
+    color: white;
+    cursor: pointer;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+#theme-toggle:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+}
+
+/* Main Content - Center */
+.main-content {
+    grid-area: main;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.welcome {
+    color: white;
+    font-size: 4rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.date {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+    font-weight: 400;
+}
+
+.search-section {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    padding: 30px;
+    margin-bottom: 30px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 15px 35px rgba(31, 38, 135, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    width: 100%;
+}
+
+#search-input {
+    width: 70%;
+    padding: 15px 20px;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    font-size: 1rem;
+    margin-right: 10px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+#search-input:focus {
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+#search-engine {
+    padding: 15px;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    margin-right: 10px;
+    font-size: 1rem;
+    background: white;
+    cursor: pointer;
+    outline: none;
+}
+
+#search-button {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    padding: 15px 25px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: transform 0.2s ease;
+}
+
+#search-button:hover {
+    transform: translateY(-2px);
+}
+
+.bookmarks-section {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    padding: 25px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    width: 100%;
+}
+
+.bookmarks-section h2 {
+    color: #4a5568;
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+#bookmark-list {
+    list-style: none;
+}
+
+/* Todo Section - Bottom Right */
+.todo-section {
+    grid-area: todo;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    padding: 20px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    max-width: 300px;
+    justify-self: end;
+    height: fit-content;
+}
+
+.todo-section h2 {
+    color: #4a5568;
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+#todo-input {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+    outline: none;
+}
+
+#todo-input:focus {
+    border-color: #667eea;
+}
+
+#add-todo {
+    background: #667eea;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom: 15px;
+    font-weight: 500;
+}
+
+#add-todo:hover {
+    background: #5a67d8;
+}
+
+#todo-list {
+    list-style: none;
+}
+
+/* Dark Mode */
+.dark-mode {
+    background: linear-gradient(135deg, #2d3748 0%, #4a5568 100%);
+}
+
+.dark-mode .weather-section,
+.dark-mode .search-section,
+.dark-mode .bookmarks-section,
+.dark-mode .todo-section {
+    background: rgba(45, 55, 72, 0.9);
+    color: #e2e8f0;
+}
+
+.dark-mode .weather-section h2,
+.dark-mode .bookmarks-section h2,
+.dark-mode .todo-section h2 {
+    color: #e2e8f0;
+}
+
+.dark-mode #search-input,
+.dark-mode #search-engine,
+.dark-mode #todo-input {
+    background: #4a5568;
+    color: #e2e8f0;
+    border-color: #718096;
+}
+
+.dark-mode #weather-info {
+    color: #cbd5e0;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .container {
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+            "theme-toggle"
+            "weather"
+            "main"
+            "todo";
+        gap: 15px;
+    }
+    
+    .weather-section,
+    .todo-section {
+        max-width: 100%;
+        justify-self: center;
+    }
+    
+    .welcome {
+        font-size: 3rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .welcome {
+        font-size: 2.5rem;
+    }
+    
+    #search-input {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    
+    .search-section {
+        padding: 20px;
+    }
+}

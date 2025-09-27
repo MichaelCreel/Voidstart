@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Voidstart</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Weather section - Top Left -->
+        <section id="weather" class="weather-section">
+            <h2>Weather</h2>
+            <div id="weather-info">Loading...</div>
+        </section>
+
+        <!-- Theme toggle - Top Right -->
+        <div class="theme-toggle-section">
+            <button id="theme-toggle">Toggle Theme</button>
+        </div>
+
+        <!-- Main content - Center -->
+        <div class="main-content">
+            <h1 class="welcome">Welcome</h1>
+            <div id="date" class="date"></div>
+            
+            <section id="search" class="search-section">
+                <input type="text" id="search-input" placeholder="Search...">
+                <select id="search-engine">
+                    <option value="google">Google</option>
+                    <option value="bing">Bing</option>
+                    <option value="duckduckgo">DuckDuckGo</option>
+                    <option value="yahoo">Yahoo</option>
+                </select>
+                <button id="search-button">Go</button>
+            </section>
+
+            <section id="bookmarks" class="bookmarks-section">
+                <h2>Bookmarks</h2>
+                <ul id="bookmark-list"></ul>
+            </section>
+        </div>
+
+        <!-- Todo section - Bottom Right -->
+        <section id="todo" class="todo-section">
+            <h2>To-Do List</h2>
+            <input type="text" id="todo-input" placeholder="Add task">
+            <button id="add-todo">Add</button>
+            <ul id="todo-list"></ul>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
