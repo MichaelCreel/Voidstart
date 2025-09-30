@@ -38,6 +38,11 @@
             <section id="bookmarks" class="bookmarks-section">
                 <h2>Bookmarks</h2>
                 <ul id="bookmark-list"></ul>
+                <div class="bookmark-controls">
+                    <input type="text" id="bookmark-name" placeholder="Site name">
+                    <input type="text" id="bookmark-url" placeholder="URL">
+                    <button id="add-bookmark">Add</button>
+                </div>
             </section>
         </div>
 
