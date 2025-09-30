@@ -53,6 +53,7 @@ body {
 }
 
 #weather-info {
+    white-space: pre-line;
     color: #f7fafc;
     font-size: 0.9rem;
 }
