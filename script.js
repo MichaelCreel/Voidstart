@@ -1,8 +1,50 @@
 document.getElementById("date").textContent = new Date().toDateString();
 
-document.getElementById("theme-toggle").addEventListener("click", function() {
-    document.body.classList.toggle("dark-mode");
-});
+// Theme functionality with persistent storage
+function loadTheme() {
+    const savedTheme = localStorage.getItem('voidstart-theme');
+    if (savedTheme === 'dark') {
+        document.body.classList.add('dark-mode');
+    }
+}
+
+function saveTheme() {
+    if (document.body.classList.contains('dark-mode')) {
+        localStorage.setItem('voidstart-theme', 'dark');
+    } else {
+        localStorage.setItem('voidstart-theme', 'light');
+    }
+}
+
+function toggleTheme() {
+    document.body.classList.toggle('dark-mode');
+    saveTheme();
+}
+
+// Load theme when page loads
+loadTheme();
+
+// Theme toggle event listener
+document.getElementById("theme-toggle").addEventListener("click", toggleTheme);
+
+// Search engine persistence
+function loadSearchEngine() {
+    const savedEngine = localStorage.getItem('voidstart-search-engine');
+    if (savedEngine) {
+        document.getElementById('search-engine').value = savedEngine;
+    }
+}
+
+function saveSearchEngine() {
+    const selectedEngine = document.getElementById('search-engine').value;
+    localStorage.setItem('voidstart-search-engine', selectedEngine);
+}
+
+// Load saved search engine when page loads
+loadSearchEngine();
+
+// Save search engine when changed
+document.getElementById('search-engine').addEventListener('change', saveSearchEngine);
 
 // Search
 document.getElementById("search-button").addEventListener("click", () => {
@@ -121,3 +163,80 @@ document.getElementById('bookmark-url').addEventListener('keypress', (e) => {
 
 // Load bookmarks when page loads
 loadBookmarks();
+
+// Todo functionality
+let todos = [];
+
+// Load todos from localStorage
+function loadTodos() {
+    const savedTodos = localStorage.getItem('voidstart-todos');
+    if (savedTodos) {
+        todos = JSON.parse(savedTodos);
+        displayTodos();
+    }
+}
+
+// Save todos to localStorage
+function saveTodos() {
+    localStorage.setItem('voidstart-todos', JSON.stringify(todos));
+}
+
+// Display todos in the list
+function displayTodos() {
+    const todoList = document.getElementById('todo-list');
+    todoList.innerHTML = '';
+    
+    todos.forEach((todo, index) => {
+        const listItem = document.createElement('li');
+        listItem.className = 'todo-item';
+        listItem.innerHTML = `
+            <div class="todo-content">
+                <input type="checkbox" ${todo.completed ? 'checked' : ''} 
+                       onchange="toggleTodo(${index})" class="todo-checkbox">
+                <span class="todo-text ${todo.completed ? 'completed' : ''}">${todo.text}</span>
+            </div>
+            <button onclick="deleteTodo(${index})" class="todo-delete">Delete</button>
+        `;
+        todoList.appendChild(listItem);
+    });
+}
+
+// Add new todo
+function addTodo() {
+    const todoInput = document.getElementById('todo-input');
+    const text = todoInput.value.trim();
+    
+    if (text) {
+        todos.push({ text, completed: false });
+        saveTodos();
+        displayTodos();
+        
+        // Clear input
+        todoInput.value = '';
+    }
+}
+
+// Toggle todo completion
+function toggleTodo(index) {
+    todos[index].completed = !todos[index].completed;
+    saveTodos();
+    displayTodos();
+}
+
+// Delete todo
+function deleteTodo(index) {
+    todos.splice(index, 1);
+    saveTodos();
+    displayTodos();
+}
+
+// Add event listeners for todos
+document.getElementById('add-todo').addEventListener('click', addTodo);
+
+// Allow Enter key to add todo
+document.getElementById('todo-input').addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') addTodo();
+});
+
+// Load todos when page loads
+loadTodos();
